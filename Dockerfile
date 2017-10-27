@@ -1,4 +1,4 @@
-FROM anapsix/alpine-java
+FROM registry.docker-cn.com/anapsix/alpine-java
 
 ARG kafka_version=0.11.0.1
 ARG scala_version=2.12
