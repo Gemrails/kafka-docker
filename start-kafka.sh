@@ -1,5 +1,14 @@
 #!/bin/bash
 
+if [[ -z "$ZK_PORT" ]]; then
+    export ZK_PORT=2181
+fi
+
+if [[ 0 == `lsof -i :${ZK_PORT} | wc -l` ]]; then
+    echo "Error: Can not find zookeeper cluster on port "${ZK_PORT}", exit."
+    exit 1
+fi
+
 if [[ -z "$KAFKA_PORT" ]]; then
     export KAFKA_PORT=9092
 fi
